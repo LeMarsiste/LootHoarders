@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class CameraLerp : MonoBehaviour
@@ -10,6 +11,8 @@ public class CameraLerp : MonoBehaviour
     public float moveSpeed = 2f;
     public float rotationSpeed = 2f;
     public float movementDelay = 5f;
+
+    public UnityEvent OnCameraPositioned;
 
     float deltaTime = 0f;
     private void Update()
@@ -31,8 +34,7 @@ public class CameraLerp : MonoBehaviour
 
         if (transform.rotation == targetRotation.rotation)
         {
-            //We don't want random Updates runnin now do we?
-            Debug.Log("<color=red> Show UI After This Section </color>");
+            OnCameraPositioned?.Invoke();
             enabled = false;
         }
     }
