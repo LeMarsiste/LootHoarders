@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 010ca33ab7b906c47bdab80751718a17, type: 3}
-  m_Name: MindGoblin
+  m_Name: OrcSpearman
   m_EditorClassIdentifier: 
-  CharacterImage: {fileID: 21300000, guid: 6d664d13450fdd04cb60001e410e1cfe, type: 3}
-  CharacterName: Mind Goblin
-  PassiveAbilities: 030000000000000007000000
+  CharacterImage: {fileID: 21300000, guid: 0397ad6ed54ae2641bdc5231256aec89, type: 3}
+  CharacterName: Orc Spearman
+  PassiveAbilities: 050000000600000003000000
