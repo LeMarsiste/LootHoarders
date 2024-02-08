@@ -9,7 +9,8 @@ public class RecordKeeper : MonoBehaviour
 
     [Header("Global Game Settings")]
     public List<CharacterScriptableObject> AvailableCharacters = new List<CharacterScriptableObject>();
-
+    [SerializeField] private AbilitiesScriptableObject AbilitiesConfig;
+    [HideInInspector] public Dictionary<Ability,AbilityData> Abilities = new Dictionary<Ability, AbilityData>();
 
     #region Unity Callbacks
     private void Awake()
@@ -22,8 +23,22 @@ public class RecordKeeper : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(this);
+
+
         if (!PlayerPrefs.HasKey("Player_Character"))
             PlayerPrefs.SetInt("Player_Character", 0);
+
+        InitializeAbilities();
+
     }
+    #endregion
+
+    #region Public Methods
+    public void InitializeAbilities()
+    {
+        foreach (AbilityData data in AbilitiesConfig.AbilitiesInfo)
+            Abilities[data.Ability] = data;
+    }
+
     #endregion
 }
