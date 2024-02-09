@@ -11,6 +11,7 @@ public class RecordKeeper : MonoBehaviour
     public List<CharacterScriptableObject> AvailableCharacters = new List<CharacterScriptableObject>();
     [SerializeField] private AbilitiesScriptableObject AbilitiesConfig;
     [HideInInspector] public Dictionary<Ability,AbilityData> Abilities = new Dictionary<Ability, AbilityData>();
+    [HideInInspector] public string Username;
 
     #region Unity Callbacks
     private void Awake()
