@@ -21,6 +21,16 @@ public class GameManager : NetworkBehaviour
 
     #region Public Methods
 
+    #region Game Logic
+    /// <summary>
+    /// Discards the card sent to it
+    /// </summary>
+    /// <param name="discardedCard">The card to be discarded</param>
+    public void DiscardCard(Card discardedCard)
+    {
+
+    }
+    #endregion
 
     #region Mirror
     /// <summary>
@@ -36,5 +46,7 @@ public class GameManager : NetworkBehaviour
     }
 
     #endregion
+
+
     #endregion
 }
