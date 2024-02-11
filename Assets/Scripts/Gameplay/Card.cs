@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Card : MonoBehaviour
 {
     public CardType Type;
+    public int PointValue;
     public abstract void Play();
     public virtual void Discard()
     {
