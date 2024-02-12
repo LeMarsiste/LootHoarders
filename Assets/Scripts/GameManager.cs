@@ -7,6 +7,7 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance;
 
+    private Deck deck, discardPile;
 
     private readonly Dictionary<string, NetworkConnectionToClient> connectionByUsername = new Dictionary<string, NetworkConnectionToClient>();
 
@@ -15,6 +16,10 @@ public class GameManager : NetworkBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
     }
     #endregion
 
@@ -26,9 +31,10 @@ public class GameManager : NetworkBehaviour
     /// Discards the card sent to it
     /// </summary>
     /// <param name="discardedCard">The card to be discarded</param>
+    [Server]
     public void DiscardCard(Card discardedCard)
     {
-
+        discardPile.AddCard(discardedCard);
     }
     #endregion
 
@@ -47,6 +53,14 @@ public class GameManager : NetworkBehaviour
 
     #endregion
 
+
+    #endregion
+
+
+    #region Private Methods
+    public void initializeMainDeck() { 
+
+    }
 
     #endregion
 }

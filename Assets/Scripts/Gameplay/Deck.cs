@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Deck : MonoBehaviour
 {
@@ -37,6 +38,16 @@ public class Deck : MonoBehaviour
             cardsList.Add(deck.Dequeue());
 
         return cardsList;
+    }
+
+    public void AddCard(Card cardData)
+    {
+        if (deck.Contains(cardData))
+        {
+            Debug.Assert(deck.Contains(cardData), "<color=red>The card added to </color>" + name + "<color=red> is a duplicate!</color>");
+            return;
+        }
+        deck.Enqueue(cardData);
     }
     #endregion
 }
